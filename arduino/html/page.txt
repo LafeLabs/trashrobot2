@@ -1,0 +1,39 @@
+<a id = "editlink" href = "editor.php">editor.php</a>
+ 
+<table id = "buttontable">
+    <tr>
+        <td class = "button">oscillator</td>
+        <td class = "button">probe</td>
+        <td class = "button">optical</td>
+        <td class = "button">xydc</td>
+        <td class = "button">xystepper</td>
+    </tr>
+</table>
+<textarea id = "maincode"></textarea>
+<input id = "actioncontrol"/>
+<table id = "glyphtable">
+    <tr>
+        <td><canvas></canvas></td><td><canvas></canvas></td>
+    </tr>
+    <tr>
+        <td><canvas></canvas></td><td><canvas></canvas></td>
+    </tr>
+    <tr>
+        <td><canvas></canvas></td><td><canvas></canvas></td>
+    </tr>
+    <tr>
+        <td><canvas></canvas></td><td><canvas></canvas></td>
+    </tr>
+    <tr>
+        <td><canvas></canvas></td><td><canvas></canvas></td>
+    </tr>
+    <tr>
+        <td><canvas></canvas></td><td><canvas></canvas></td>
+    </tr>
+    <tr>
+        <td><canvas></canvas></td><td><canvas></canvas></td>
+    </tr>
+    <tr>
+        <td><canvas></canvas></td><td><canvas></canvas></td>
+    </tr>
+</table>
