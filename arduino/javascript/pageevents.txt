@@ -63,3 +63,84 @@ document.getElementById("actioncontrol").onkeypress = function(a){
     }
     
 }
+
+buttons[0].onclick = function(){
+    buttons[buttonIndex].style.backgroundColor = "white";
+    buttons[buttonIndex].style.color = "black";
+    buttonIndex  = 0;
+    buttons[buttonIndex].style.backgroundColor = "black";
+    buttons[buttonIndex].style.color = "#00ff00";
+    currentFile = "oscillator/oscillator.ino";
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            filedata = this.responseText;
+            document.getElementById("maincode").value = filedata;
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
+    httpc.send();
+    
+    document.getElementById("glyphtable").style.display = "none";    
+}
+
+buttons[1].onclick = function(){
+    buttons[buttonIndex].style.backgroundColor = "white";
+    buttons[buttonIndex].style.color = "black";
+    buttonIndex  = 1;
+    buttons[buttonIndex].style.backgroundColor = "black";
+    buttons[buttonIndex].style.color = "#00ff00";
+    currentFile = "probe/probe.ino";
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            filedata = this.responseText;
+            document.getElementById("maincode").value = filedata;
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
+    httpc.send();
+    
+    document.getElementById("glyphtable").style.display = "none";    
+}
+
+buttons[2].onclick = function(){
+    buttons[buttonIndex].style.backgroundColor = "white";
+    buttons[buttonIndex].style.color = "black";
+    buttonIndex  = 2;
+    buttons[buttonIndex].style.backgroundColor = "black";
+    buttons[buttonIndex].style.color = "#00ff00";
+    currentFile = "optical/optical.ino";
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            filedata = this.responseText;
+            document.getElementById("maincode").value = filedata;
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
+    httpc.send();
+    
+    document.getElementById("glyphtable").style.display = "none";    
+}
+
+buttons[3].onclick = function(){
+    buttons[buttonIndex].style.backgroundColor = "white";
+    buttons[buttonIndex].style.color = "black";
+    buttonIndex  = 3;
+    buttons[buttonIndex].style.backgroundColor = "black";
+    buttons[buttonIndex].style.color = "#00ff00";
+    currentFile = "xydc/xydc.ino";
+    var httpc = new XMLHttpRequest();
+    httpc.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            filedata = this.responseText;
+            document.getElementById("maincode").value = filedata;
+            redraw();
+        }
+    };
+    httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
+    httpc.send();
+    document.getElementById("actioncontrol").select();
+    document.getElementById("glyphtable").style.display = "block";    
+}
