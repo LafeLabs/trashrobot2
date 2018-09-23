@@ -27,13 +27,13 @@ void loop() {
     x1 = analogRead(A1);
     x2 = analogRead(A2);
     x3 = analogRead(A3);
-    Serial.print(x0-1010);    
-    Serial.print(",");
-    Serial.print(x1-1010);    
-    Serial.print(",");
-    Serial.print(x2-1010);    
-    Serial.print(",");
-    Serial.println(x3-1010);    
+   // Serial.print(x0);    
+   // Serial.print(",");
+   // Serial.print(x1);    
+  //  Serial.print(",");
+ //   Serial.print(x2);    
+//    Serial.print(",");
+    Serial.println(x0);    
     if(x0 < threshold){
       digitalWrite(pin1,LOW);
       digitalWrite(pin2,LOW);
@@ -43,7 +43,6 @@ void loop() {
     else{
       digitalWrite(pin1,LOW);
     }
-    delay(1);
     if(x1 < threshold){
       digitalWrite(pin4,LOW);
       digitalWrite(pin3,LOW);
@@ -53,7 +52,6 @@ void loop() {
     else{
       digitalWrite(pin2,LOW);
     }
-delay(1);
     if(x2 < threshold){
       digitalWrite(pin1,LOW);
       digitalWrite(pin2,LOW);
@@ -63,7 +61,6 @@ delay(1);
     else{
       digitalWrite(pin3,LOW);
     }
-delay(1);
     if(x3 < threshold){
       digitalWrite(pin1,LOW);
       digitalWrite(pin2,LOW);

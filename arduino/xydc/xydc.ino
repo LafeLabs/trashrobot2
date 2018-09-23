@@ -7,7 +7,7 @@ String shapex = String("D2S0");//TWO DOTS
 String shapec = String("qa");//THREE DOTS
 String shapev = String("qs");//FOUR DOTS
 
-//shapecode
+//shapecode  this is a test
 /*
 www.trashrobot.org/xydc 
 XY Trash Robot with DC motors 

@@ -59,7 +59,10 @@ EGO DEATH:
     <div class = "json file">json/dna.txt</div>
     <div class = "json file">json/stylejson.txt</div>
 
-    <div class = "javascript file">oscillator/oscillator.ino</div>
+    <div class = "arduino file">oscillator/oscillator.ino</div>
+    <div class = "arduino file">probe/probe.ino</div>
+    <div class = "arduino file">optical/optical.ino</div>
+    <div class = "arduino file">xydc/xydc.ino</div>
 
 </div>
 
@@ -125,6 +128,11 @@ for(var index = 0;index < files.length;index++){
             editor.getSession().setMode("ace/mode/json");
             document.getElementById("namediv").style.color = "orange";
             document.getElementById("namediv").style.borderColor = "orange";
+        }
+        if(this.classList[0] == "arduino"){
+            editor.getSession().setMode("ace/mode/java");
+            document.getElementById("namediv").style.color = "#87ceeb";
+            document.getElementById("namediv").style.borderColor = "#87ceeb";
         }
 
         document.getElementById("namediv").innerHTML = currentFile;
@@ -193,7 +201,9 @@ body{
 .scrolls{
     color:#87ceeb;
 }
-
+.arduino{
+   color:#87ceeb; 
+}
 .file{
     cursor:pointer;
     border-radius:0.25em;
