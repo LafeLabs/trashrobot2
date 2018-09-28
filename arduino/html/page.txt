@@ -9,7 +9,7 @@
         <td class = "button">xystepper</td>
     </tr>
 </table>
-<textarea id = "maincode"></textarea>
+<textarea id = "maincode"  spellcheck="false"></textarea>
 <input id = "actioncontrol"/>
 <table id = "glyphtable">
     <tr>

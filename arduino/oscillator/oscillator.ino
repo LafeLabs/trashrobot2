@@ -29,12 +29,12 @@ void loop() {
     enable = digitalRead(enablePin);
     x = analogRead(A0) - x0;
     if(enable && x > 0){
-        digitalWrite(drivePin1,HIGH);
-        digitalWrite(drivePin2,LOW);
+        digitalWrite(drivePin2,HIGH);
+        digitalWrite(drivePin1,LOW);
     }
     if(enable && x < 0){
-        digitalWrite(drivePin2,HIGH);
-        digitalWrite(drivePin1,LOW);      
+        digitalWrite(drivePin1,HIGH);
+        digitalWrite(drivePin2,LOW);      
     }
     if(!enable){
         digitalWrite(drivePin2,LOW);

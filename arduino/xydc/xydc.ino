@@ -35,10 +35,10 @@ char prevAction = 'w';
 
 int buttonValue = 0;
 
-int triangleOutPin = 10;
-int triangleInPin = 11;
-int squareOutPin = 8;
-int squareInPin = 9;
+int triangleOutPin = 12;
+int triangleInPin = 13;
+int squareOutPin = 10;
+int squareInPin = 11;
 
 void setup() {
   Serial.begin(115200);
@@ -50,11 +50,13 @@ void setup() {
   digitalWrite(triangleInPin,LOW);
   digitalWrite(squareOutPin,LOW);
   digitalWrite(squareInPin,LOW);
+
+
 }
 
 void loop() {
   
-  buttonValue = analogRead(A4);//or whatever pin the button is on
+  buttonValue = analogRead(A0);//or whatever pin the button is on
   
   if(abs(buttonValue - 256) < 100){//z ONE DOT, 1 10k resistor from ground, 3 from 5vdc
     doTheThing('z');
@@ -68,6 +70,8 @@ void loop() {
   if(abs(buttonValue - 1023) < 100){//v FOUR DOTS, connected to 5VDC
     doTheThing('v');
   }
+  
+  
 }
 
 void drawGlyph(String localGlyph){
