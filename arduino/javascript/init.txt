@@ -43,7 +43,6 @@ httpc.send();
     dot4 = "4";
     
     
-    
     glyphArray = [];
 
     glyphArray.push(star5);

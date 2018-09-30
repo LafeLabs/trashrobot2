@@ -1,13 +1,13 @@
-String shapeA = String("aw");
-String shapeS = String("sw");
-String shapeD = String("qeggg");
-String shapeF = String("");
-String shapez = String("D2A0");//ONE DOT
-String shapex = String("D2S0");//TWO DOTS
-String shapec = String("qa");//THREE DOTS
-String shapev = String("qs");//FOUR DOTS
+String shape1 = String("");
+String shape2 = String("");
+String shape3 = String("");
+String shape4 = String("");
+String shape5 = String("");
+String shape6 = String("");
+String shape7 = String("");
+String shape8 = String("");
 
-//shapecode  this is a test
+//shapecode 
 /*
 www.trashrobot.org/xydc 
 XY Trash Robot with DC motors 
@@ -19,8 +19,8 @@ NO COPYRIGHT
 boolean loopMode = false;
 
 float scaleFactor = 2;
-float unitTriangleOut = 150;//ms
-float unitTriangleIn = 150;//ms
+float unitTriangleOut = 100;//ms
+float unitTriangleIn = 100;//ms
 float unitSquareOut = 100;//ms
 float unitSquareIn = 100;//ms
 float unitNull = 100;//ms
@@ -30,8 +30,6 @@ float sideTriangleIn= unitTriangleIn;
 float sideSquareOut = unitSquareOut;
 float sideSquareIn = unitSquareIn;
 float sideNull = unitNull;
-
-char prevAction = 'w';
 
 int buttonValue = 0;
 
@@ -59,16 +57,16 @@ void loop() {
   buttonValue = analogRead(A0);//or whatever pin the button is on
   
   if(abs(buttonValue - 256) < 100){//z ONE DOT, 1 10k resistor from ground, 3 from 5vdc
-    doTheThing('z');
+    doTheThing('5');
   }
   if(abs(buttonValue - 512) < 100){//x TWO DOTS, two 10k resistors from 5VDC and 2 from ground
-    doTheThing('x');
+    doTheThing('6');
   }
   if(abs(buttonValue - 768) < 100){//c THREE DOTS, one 10k resistor down from 5VDC, three from ground
-    doTheThing('c');
+    doTheThing('7');
   }
   if(abs(buttonValue - 1023) < 100){//v FOUR DOTS, connected to 5VDC
-    doTheThing('v');
+    doTheThing('8');
   }
   
   
@@ -82,20 +80,7 @@ void drawGlyph(String localGlyph){
 
 void doTheThing(char localCommand){
   Serial.print(localCommand);
-  /*
-    Test if current action is a loop, and if NOT, 
-    set the previous action to be this command
-    also test if in a loop using loopMode boolean
-    terminate all loops with '0', 
-  */
 
-  if(!isLoop(localCommand) && !loopMode){
-    prevAction = localCommand;
-  }
-  if(isLoop(localCommand) && !loopMode){
-    loopMode = true;
-  }
-     
   if(localCommand == 'q'){//reset to "unit" value of "side", all in miliseconds
     sideTriangleOut = unitTriangleOut;
     sideTriangleIn= unitTriangleIn;
@@ -157,89 +142,30 @@ void doTheThing(char localCommand){
     sideSquareOut *= scaleFactor;    
     sideSquareIn *= scaleFactor;    
   }
-  if(localCommand == '0'){
-    loopMode = false;//loop terminator 
-  }
   if(localCommand == '1'){//4
-    doTheThing(prevAction);
-    doTheThing(prevAction);
-    doTheThing(prevAction);
-    doTheThing(prevAction);
+    drawGlyph(shape1);
   }
   if(localCommand == '2'){//16
-    doTheThing('1');
-    doTheThing('1');
-    doTheThing('1');
-    doTheThing('1');    
+    drawGlyph(shape2);
   }
   if(localCommand == '3'){//64
-    doTheThing('2');
-    doTheThing('2');
-    doTheThing('2');
-    doTheThing('2');    
+    drawGlyph(shape3);
   }
   if(localCommand == '4'){//256
-    doTheThing('3');
-    doTheThing('3');
-    doTheThing('3');
-    doTheThing('3');    
+    drawGlyph(shape4);
   }
   if(localCommand == '5'){//1024
-    doTheThing('4');
-    doTheThing('4');
-    doTheThing('4');
-    doTheThing('4');    
+    drawGlyph(shape5);
   }
   if(localCommand == '6'){//4096
-    doTheThing('5');
-    doTheThing('5');
-    doTheThing('5');
-    doTheThing('5');    
+    drawGlyph(shape6);
   }
   if(localCommand == '7'){//16384
-    doTheThing('6');
-    doTheThing('6');
-    doTheThing('6');
-    doTheThing('6');    
+    drawGlyph(shape7);
   }
-  if(localCommand == 'A'){
-    drawGlyph(shapeA);
-  }
-  if(localCommand == 'S'){
-    drawGlyph(shapeS);
-  }
-  if(localCommand == 'D'){
-    drawGlyph(shapeD);
-  }
-  if(localCommand == 'F'){
-    drawGlyph(shapeF);
-  }
-   if(localCommand == 'z'){
-    drawGlyph(shapez);
-  }
-  if(localCommand == 'x'){
-    drawGlyph(shapex);
-  }
-  if(localCommand == 'c'){
-    drawGlyph(shapec);
-  }
-  if(localCommand == 'v'){
-    drawGlyph(shapev);
+  if(localCommand == '8'){
+    drawGlyph(shape8);
   }
 
 }
 
-bool isLoop(char localCommand){
-    if(localCommand == '1' ||
-       localCommand == '2' ||
-       localCommand == '3' ||
-       localCommand == '4' ||
-       localCommand == '5' ||
-       localCommand == '6' ||
-       localCommand == '7'){
-           return true;
-       }
-       else{
-           return false;
-       }
-}
