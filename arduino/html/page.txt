@@ -25,15 +25,15 @@
         <td><canvas></canvas></td><td><canvas></canvas></td>
     </tr>
     <tr>
-        <td><canvas></canvas></td><td><canvas></canvas></td>
+        <td><canvas style = "background-color:yellow"></canvas></td><td><canvas></canvas></td>
     </tr>
     <tr>
-        <td><canvas></canvas></td><td><canvas></canvas></td>
+        <td><canvas style = "background-color:purple"></canvas></td><td><canvas></canvas></td>
     </tr>
     <tr>
-        <td><canvas></canvas></td><td><canvas></canvas></td>
+        <td><canvas style = "background-color:orange"></canvas></td><td><canvas></canvas></td>
     </tr>
     <tr>
-        <td><canvas></canvas></td><td><canvas></canvas></td>
+        <td><canvas style = "background-color:green"></canvas></td><td><canvas></canvas></td>
     </tr>
 </table>

@@ -16,10 +16,10 @@ httpc.send();
     styleJSON = JSON.parse(document.getElementById("stylejsondiv").innerHTML);
 
     x0 = 5;
-    y0 = 40;
+    y0 = 45;
     unit = 22;
     canvases = document.getElementsByTagName("CANVAS");
-    labels = [01101,01123,01104,01106,01172,01170,01143,01166];
+    labels = [01061,01062,01063,01064,01065,01066,01067,01070];
     for(var index = 0;index < 8;index++){
         canvases[2*index].width = 60;
         canvases[2*index].height = 60;
@@ -33,14 +33,16 @@ httpc.send();
         doTheThing(labels[index]);
     }
     
-    star5 = "aw";
-    star6 = "sw";
-    star8 = "qeggg";
-    star9 = "";
-    dot1 = "D2A0";
-    dot2 = "D2S0";
-    dot3 = "qa";
-    dot4 = "qs";
+    star5 = "aqaqa";
+    star6 = "sqsqs";
+    star8 = "dqdqd";
+    star9 = "fqfqf";
+    dot1 = "1";
+    dot2 = "2";
+    dot3 = "3";
+    dot4 = "4";
+    
+    
     
     glyphArray = [];
 
