@@ -4,7 +4,6 @@
     <tr>
         <td class = "button">oscillator</td>
         <td class = "button">probe</td>
-        <td class = "button">optical</td>
         <td class = "button">xydc</td>
         <td class = "button">xystepper</td>
     </tr>

@@ -61,7 +61,7 @@ httpc.send();
     arrowkey = false;   
     
     buttons = document.getElementsByClassName("button");
-    buttonIndex  =3;
+    buttonIndex  =2;
     buttons[buttonIndex].style.backgroundColor = "black";
     buttons[buttonIndex].style.color = "#00ff00";
     
