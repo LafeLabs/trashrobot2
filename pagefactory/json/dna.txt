@@ -1,0 +1,33 @@
+[
+	{
+		"path":"factory_symbols",
+		"files":[
+			"copy.svg",
+			"editor.svg",
+			"factory.svg",
+			"page.svg"
+		]
+	},
+	{
+		"path":"json",
+		"files":[
+			"dna.txt"
+		]
+	},
+	{
+		"path":"php",
+		"files":[
+			"copy.txt",
+			"dnagenerator.txt",
+			"editor.txt",
+			"fileloader.txt",
+			"filesaver.txt",
+			"index.txt",
+			"makenewpage.txt",
+			"pageeditor.txt",
+			"pageindextemplate.txt",
+			"replicator.txt",
+			"text2php.txt"
+		]
+	}
+]

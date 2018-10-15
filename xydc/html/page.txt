@@ -1,0 +1,30 @@
+<a id = "editlink" href = "editor.php">editor.php</a>
+ 
+<textarea id = "maincode"  spellcheck="false"></textarea>
+<input id = "actioncontrol"/>
+<table id = "glyphtable">
+    <tr>
+        <td><canvas></canvas></td><td><canvas></canvas></td>
+    </tr>
+    <tr>
+        <td><canvas></canvas></td><td><canvas></canvas></td>
+    </tr>
+    <tr>
+        <td><canvas></canvas></td><td><canvas></canvas></td>
+    </tr>
+    <tr>
+        <td><canvas></canvas></td><td><canvas></canvas></td>
+    </tr>
+    <tr>
+        <td><canvas style = "background-color:yellow"></canvas></td><td><canvas></canvas></td>
+    </tr>
+    <tr>
+        <td><canvas style = "background-color:purple"></canvas></td><td><canvas></canvas></td>
+    </tr>
+    <tr>
+        <td><canvas style = "background-color:orange"></canvas></td><td><canvas></canvas></td>
+    </tr>
+    <tr>
+        <td><canvas style = "background-color:green"></canvas></td><td><canvas></canvas></td>
+    </tr>
+</table>

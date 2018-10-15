@@ -1,0 +1,46 @@
+    for(var index = 0;index < glyphArray.length;index++){
+        ctx = canvases[index*2  + 1].getContext("2d");
+        ctx.clearRect(0,0,500,60);
+        doTheThing(0300);
+        spellGlyph(string2byteCode(glyphArray[index]));
+    }
+
+    ctx = canvases[2*glyphIndex + 1].getContext("2d");
+    ctx.clearRect(0,0,500,60);
+    doTheThing(0300);
+    spellGlyph(currentGlyph);
+    
+    glyphArray[glyphIndex] = byteCode2string(currentGlyph);
+    
+    codecode =  "String shape1 = String(\"" + glyphArray[0] + "\");\n";
+    codecode += "String shape2 = String(\"" + glyphArray[1] + "\");\n";
+    codecode += "String shape3 = String(\"" + glyphArray[2] + "\");\n";
+    codecode += "String shape4 = String(\"" + glyphArray[3] + "\");\n";
+
+    codecode += "String shape5 = String(\"" + glyphArray[4] + "\");\n";
+    codecode += "String shape6 = String(\"" + glyphArray[5] + "\");\n";
+    codecode += "String shape7 = String(\"" + glyphArray[6] + "\");\n";
+    codecode += "String shape8 = String(\"" + glyphArray[7] + "\");\n";
+
+    oldcode = document.getElementById("maincode").value;
+    bottomcode = oldcode.split("//shapecode")[1];
+    
+    document.getElementById("maincode").value = codecode + "\n//shapecode" + bottomcode;
+    
+    
+    data = encodeURIComponent(JSON.stringify(glyphArray,null, "    "));
+    var httpc = new XMLHttpRequest();
+    var url = "filesaver.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+    httpc.send("data="+data+"&filename=json/currentjson.txt");//send text to filesaver.php
+
+    data = encodeURIComponent(document.getElementById("maincode").value);
+    var httpc = new XMLHttpRequest();
+    var url = "filesaver.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+    httpc.send("data="+data+"&filename=xydc/xydc.ino");//send text to filesaver.php
+
+    
+    

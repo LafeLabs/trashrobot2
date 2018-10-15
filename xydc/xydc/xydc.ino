@@ -1,11 +1,11 @@
-String shape1 = String("a");
-String shape2 = String("s");
-String shape3 = String("d");
-String shape4 = String("f");
-String shape5 = String("a");
-String shape6 = String("s");
-String shape7 = String("d");
-String shape8 = String("f");
+String shape1 = String("asdfasdfr");
+String shape2 = String("sqsq");
+String shape3 = String("dqdqd");
+String shape4 = String("fqfqf");
+String shape5 = String("1");
+String shape6 = String("2");
+String shape7 = String("3");
+String shape8 = String("4");
 
 //shapecode 
 /*

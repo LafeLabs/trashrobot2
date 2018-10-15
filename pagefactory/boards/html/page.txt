@@ -1,0 +1,23 @@
+<h1>Boards</h1>
+<p>
+The boards are for converting the control signals made by the Arduino circuit board into a signal with enough power to drive a motor, and into a signal which can have its direction reversed.  They are called "dual H bridge" boards because they have two circuits, each of which is shaped like a capitol English letter "H", which serve to direct the current.  Each "H" has four transistors, which each act as a switch.     
+</p>
+
+<p>
+    Buy these: 
+    <a href = "https://www.pcbway.com/project/shareproject/The_H_bridge_that_looks_like_an__H_.html">https://www.pcbway.com/project/shareproject/The_H_bridge_that_looks_like_an__H_.html
+    <img src = "board.png" style = "display:block;margin:auto;width:200px"/>
+    </a>
+    Or find someone who is willing to buy a ton of them and share.  Shipping costs way more than the boards so the more people who can go in together on that the cheaper they are per board.
+</p>
+<p>
+    Buy transistors, the IRF7862.  Check prices on octopart, buy from cheapest or just go to digikey for easy but less cheap.  50 cents from Arrow here:
+    
+    <a href = "https://www.arrow.com/en/products/irf7862trpbf/infineon-technologies-ag">https://www.arrow.com/en/products/irf7862trpbf/infineon-technologies-ag</a>
+</p>
+
+<p>
+    <a href = "irf7862pdb.pdf">DATASHEET IRF7862</a>
+    <img src = "transistor.png" style = "width:400px;display:block;margin:auto;"/>
+</p>
+ 

@@ -1,0 +1,10 @@
+<H1>Arduino</H1>
+<p>
+    Arduinos can often be found gathering dust in maker spaces, hacker spaces, and anywhere with some funding and good intentions for STEM education.  If you can find one of these, great, use that and donate the finished robot to that space!  If not, you can get cheap knock off Arduino's on Amazon which come with the USB connector that you need as well as the connector pins which are useful.  
+</p>
+<p>
+    Example Amazon link:
+    <a href = "https://www.amazon.com/Quimat-ATmega328P-Development-Compatible-Microcontroller/dp/B075KCVTMB/">
+        AMAZON LINK TO CHEAP KNOCKOFF
+    </a>
+</p>

@@ -1,0 +1,44 @@
+
+#glyphtable{
+    position:absolute;
+    top:3em;
+    left:0px;
+    z-index:2;
+}
+#actioncontrol{
+    position:absolute;
+    left:25%;
+    top:0px;
+}
+canvas{
+        border:solid;
+    }
+#maincode{
+    position:absolute;
+    right:5px;
+    top:5%;
+    height:90%;
+    width:35%;
+    font-family:courier;
+    font-size:18px;
+    border-top:solid;
+    border-bottom:solid;
+    border-left:none;
+    border-right:none;
+    border-width:20px;
+    border-color:#62AEB2;
+}
+#editlink{
+    position:absolute;
+    left:0px;
+    top:0px;
+    z-index:2;
+}
+body{
+    font-family:Helvetica;
+    font-size:1.5em;
+}
+h1,h2,h3,h4,h5{
+    width:100%;
+    text-align:center;
+}
