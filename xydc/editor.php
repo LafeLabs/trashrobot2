@@ -24,8 +24,8 @@ EGO DEATH:
 <div id = "linkscroll">
     <a href = "text2php.php">text2php.php</a>
     <a href = "index.php">index.php</a>
+    <a href = "shapetableeditor.php">shapetableeditor.php</a>
     <a href = "dnagenerator.php">dnagenerator.php</a>
-
 </div>
 <div id = "namediv"></div>
 <div id="maineditor" contenteditable="true" spellcheck="false"></div>
@@ -40,6 +40,7 @@ EGO DEATH:
     <div class = "php file">php/text2php.txt</div>
     <div class = "php file">php/dnagenerator.txt</div>
     <div class = "php file">php/replicator.txt</div>
+    <div class = "php file">php/shapetableeditor.php</div>
 
     <div class = "bytecode file">bytecode/baseshapes.txt</div>
     <div class = "bytecode file">bytecode/shapetable.txt</div>
