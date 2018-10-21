@@ -16,24 +16,22 @@ httpc.send();
     styleJSON = JSON.parse(document.getElementById("stylejsondiv").innerHTML);
 
     x0 = 5;
-    y0 = 45;
-    unit = 22;
+    y0 = 44;
+    unit = 20;
     canvases = document.getElementsByTagName("CANVAS");
-    labels = [01061,01062,01063,01064,01065,01066,01067,01070];
-    for(var index = 0;index < 8;index++){
+    labels = [01061,01062,01063,01064,01065,01066,01067,01070,0246];
+    for(var index = 0;index < 9;index++){
         canvases[2*index].width = 60;
         canvases[2*index].height = 60;
         canvases[2*index + 1].width = 500;
         canvases[2*index + 1].height = 60;
     }
 
-    for(var index = 0;index < 8;index++){
+    for(var index = 0;index < 9;index++){
         ctx = canvases[2*index].getContext("2d");
         doTheThing(0300);
         doTheThing(labels[index]);
     }
-    
-    
     
     star5 = "aqaqa";
     star6 = "sqsqs";
@@ -43,6 +41,7 @@ httpc.send();
     dot2 = "2";
     dot3 = "3";
     dot4 = "4";
+    currentGlyph = "6";
     
     if(document.getElementById("datadiv").innerHTML.length > 1){
         glyphArray = JSON.parse(document.getElementById("datadiv").innerHTML);
@@ -57,6 +56,7 @@ httpc.send();
         glyphArray.push(dot2);
         glyphArray.push(dot3);
         glyphArray.push(dot4);
+        glyphArray.push(currentGlyph);
     }
 
     glyphIndex = 0;

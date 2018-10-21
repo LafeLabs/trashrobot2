@@ -27,4 +27,7 @@
     <tr>
         <td><canvas style = "background-color:green"></canvas></td><td><canvas></canvas></td>
     </tr>
+    <tr>
+        <td><canvas></canvas></td><td><canvas></canvas></td>
+    </tr>
 </table>

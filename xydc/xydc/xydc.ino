@@ -1,11 +1,12 @@
-String shape1 = String("asasasasasgh");
-String shape2 = String("dfdfdfdfdf");
-String shape3 = String("adsfadsf");
-String shape4 = String("aaadddsssfff");
-String shape5 = String("1");
-String shape6 = String("2");
-String shape7 = String("3");
-String shape8 = String("4");
+String shape1 = String("asdf");
+String shape2 = String("hh1g 1g 1g 1");
+String shape3 = String("");
+String shape4 = String("");
+String shape5 = String("");
+String shape6 = String("");
+String shape7 = String("");
+String shape8 = String("");
+String currentGlyph = String("2");
 
 //shapecode 
 /*
@@ -16,7 +17,7 @@ FREE, PUBLIC DOMAIN
 NO COPYRIGHT
 */
 
-String currentGlyph = String("6");
+String currentGlyph = String("5678");
 float scaleFactor = 2;
 float unitTriangleOut = 100;//ms
 float unitTriangleIn = 100;//ms
@@ -45,8 +46,9 @@ void setup() {
   digitalWrite(triangleInPin,LOW);
   digitalWrite(squareOutPin,LOW);
   digitalWrite(squareInPin,LOW);
-
-
+  
+  drawGlyph(currentGlyph);
+  
 }
 
 void loop() {
@@ -61,8 +63,7 @@ void drawGlyph(String localGlyph){
 }
 
 void doTheThing(char localCommand){
-
-  if(localCommand == 'w'){
+  if(localCommand == ' '){
     delay(sideNull);
   }
   if(localCommand == 'a'){

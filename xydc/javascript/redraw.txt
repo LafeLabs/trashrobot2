@@ -22,6 +22,8 @@
     codecode += "String shape7 = String(\"" + glyphArray[6] + "\");\n";
     codecode += "String shape8 = String(\"" + glyphArray[7] + "\");\n";
 
+    codecode += "String currentGlyph = String(\"" + glyphArray[8] + "\");\n";
+
     oldcode = document.getElementById("maincode").value;
     bottomcode = oldcode.split("//shapecode")[1];
     
