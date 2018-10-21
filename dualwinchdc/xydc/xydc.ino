@@ -6,7 +6,7 @@ String shape5 = String("");
 String shape6 = String("");
 String shape7 = String("");
 String shape8 = String("");
-String currentGlyph = String("");
+String currentGlyph = String("asdf");
 
 //shapecode 
 /*
@@ -17,7 +17,6 @@ FREE, PUBLIC DOMAIN
 NO COPYRIGHT
 */
 
-String currentGlyph = String("5678");
 float scaleFactor = 2;
 float unitTriangleOut = 100;//ms
 float unitTriangleIn = 100;//ms
