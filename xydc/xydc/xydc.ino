@@ -17,7 +17,6 @@ FREE, PUBLIC DOMAIN
 NO COPYRIGHT
 */
 
-String currentGlyph = String("5678");
 float scaleFactor = 2;
 float unitTriangleOut = 100;//ms
 float unitTriangleIn = 100;//ms
