@@ -1,4 +1,4 @@
-String shape1 = String("asdf");
+String shape1 = String("asd");
 String shape2 = String("hh1g 1g 1g 1");
 String shape3 = String("");
 String shape4 = String("");
@@ -6,7 +6,7 @@ String shape5 = String("");
 String shape6 = String("");
 String shape7 = String("");
 String shape8 = String("");
-String currentGlyph = String("asdf");
+String currentGlyph = String("asdf222");
 
 //shapecode 
 /*

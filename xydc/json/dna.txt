@@ -8,6 +8,7 @@
 			"filesaver.txt",
 			"index.txt",
 			"replicator.txt",
+			"shapetableeditor.txt",
 			"text2php.txt"
 		]
 	},
