@@ -55,6 +55,15 @@
 		]
 	},
 	{
+		"path":"icons",
+		"files":[
+			"editor.svg",
+			"factory.svg",
+			"shapes.svg",
+			"symbol.svg"
+		]
+	},
+	{
 		"path":"xydc",
 		"files":[
 			"xydc.ino"

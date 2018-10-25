@@ -7,7 +7,7 @@ function getfiles($localpath){
     
     foreach($files as $value){
         if($value != "." && $value != ".."){
-            if(substr($value,-4) == ".txt" || substr($value,-4) == ".ino"){
+            if(substr($value,-4) == ".txt" || substr($value,-4) == ".ino" || substr($value,-4) == ".svg"){
                 $outstring .= "\t\t\t\"".$value."\",\n";
             }
         }
@@ -31,6 +31,8 @@ $finalstring .= ",\n";
 $finalstring .= getfiles("javascript");
 $finalstring .= ",\n";
 $finalstring .= getfiles("bytecode");
+$finalstring .= ",\n";
+$finalstring .= getfiles("icons");
 $finalstring .= ",\n";
 $finalstring .= getfiles("xydc");
 

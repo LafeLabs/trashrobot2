@@ -12,6 +12,7 @@
     mkdir("css");
     mkdir("xydc");
     mkdir("json");
+    mkdir("icons");
 
     foreach($dna as $dirs){
         mkdir($dirs->path);
