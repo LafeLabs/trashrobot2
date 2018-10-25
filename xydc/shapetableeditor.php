@@ -165,8 +165,16 @@ function doTheThing(localCommand){
 ?>
 </div>    
 <div id = "page">
-    <a  id = "editorlink" href = "editor.php">EDITOR.PHP</a>
-    <a  id = "factorylink" href = "index.php">INDEX.PHP</a>
+
+<table id = "foobar">
+    <tr>
+        <td>
+            <a href = "index.php">
+                <img src = "icons/symbol.svg"/>
+            </a>
+        </td>
+    </tr>
+</table>
 
     <canvas id="invisibleCanvas" style="display:none"></canvas>
     <canvas id="mainCanvas"></canvas>
@@ -612,12 +620,6 @@ controls[3].onkeypress = function(a){//stack
     z-index:3;
     background-color:white;
 }
-#zoompan{
-    position:absolute;
-    left:20%;
-    top:0.5em;
-    font-size:18px;
-}
 .links{
     position:absolute;
     color:black;
@@ -675,7 +677,18 @@ controls[3].onkeypress = function(a){//stack
      left:70%;
      top:80px;
      z-index:2;
- }
+ } 
+
+#foobar{
+    position:absolute;
+    right:50px;
+    top:0px;
+    z-index:2;
+}
+#foobar img{
+    width:50px;
+}
+
  #textIO{
     position:absolute;
     width:100px;
@@ -703,11 +716,6 @@ controls[3].onkeypress = function(a){//stack
 #imageTable input{
     width:5em;
     font-family:courier;
-}
-table{
-    font-family:courier;
-    font-size:18;
-    position:absolute;
 }
 #controlTable input{
     width:3em;

@@ -7,8 +7,14 @@
 }
 #actioncontrol{
     position:absolute;
-    left:25%;
+    left:0px;
     top:0px;
+    border:solid;
+    width:1em;
+    border-color:green;
+    border-width:6px;
+    border-radius:10px;
+    
 }
 canvas{
         border:solid;
@@ -28,11 +34,14 @@ canvas{
     border-width:20px;
     border-color:#62AEB2;
 }
-#editlink{
+#linktable{
     position:absolute;
-    left:0px;
+    left:50px;
     top:0px;
     z-index:2;
+}
+#linktable img{
+    width:50px;
 }
 body{
     font-family:Helvetica;

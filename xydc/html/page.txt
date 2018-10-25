@@ -1,5 +1,23 @@
-<a id = "editlink" href = "editor.php">editor.php</a>
- 
+<table id = "linktable">
+    <tr>
+        <td>
+            <a href = "editor.php">
+                <img src =  "icons/editor.svg"/>
+            </a>
+        </td>
+        <td>
+            <a href = "../">
+                <img src =  "icons/factory.svg"/>
+            </a>
+        </td>
+        <td>
+            <a href = "shapetableeditor.php">
+                <img src =  "icons/shapes.svg"/>
+            </a>
+        </td>
+    </tr>
+</table>
+
 <textarea id = "maincode"  spellcheck="false"></textarea>
 <input id = "actioncontrol"/>
 <table id = "glyphtable">

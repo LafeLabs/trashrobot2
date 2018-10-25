@@ -40,7 +40,6 @@ EGO DEATH:
     <div class = "php file">php/text2php.txt</div>
     <div class = "php file">php/dnagenerator.txt</div>
     <div class = "php file">php/replicator.txt</div>
-    <div class = "php file">php/shapetableeditor.php</div>
     <div class = "php file">php/shapetableeditor.txt</div>
 
     <div class = "bytecode file">bytecode/baseshapes.txt</div>
