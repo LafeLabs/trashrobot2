@@ -1,0 +1,69 @@
+currentFile = "arduino/xyzstepper.ino";
+var httpc = new XMLHttpRequest();
+httpc.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+        filedata = this.responseText;
+        document.getElementById("maincode").value = filedata;
+        redraw();
+    }
+};
+httpc.open("GET", "fileloader.php?filename=" + currentFile, true);
+httpc.send();
+
+
+    doTheThing(06);//import embedded hypercube in this .html doc
+    doTheThing(07);//initialize Geometron global variables
+    styleJSON = JSON.parse(document.getElementById("stylejsondiv").innerHTML);
+
+    x0 = 5;
+    y0 = 44;
+    unit = 20;
+    canvases = document.getElementsByTagName("CANVAS");
+    labels = [01061,01062,01063,01064,01065,01066,01067,01070,0246];
+    for(var index = 0;index < 9;index++){
+        canvases[2*index].width = 60;
+        canvases[2*index].height = 60;
+        canvases[2*index + 1].width = 500;
+        canvases[2*index + 1].height = 60;
+    }
+
+    for(var index = 0;index < 9;index++){
+        ctx = canvases[2*index].getContext("2d");
+        doTheThing(0300);
+        doTheThing(labels[index]);
+    }
+    
+    star5 = "aqaqa";
+    star6 = "sqsqs";
+    star8 = "dqdqd";
+    star9 = "fqfqf";
+    dot1 = "1";
+    dot2 = "2";
+    dot3 = "3";
+    dot4 = "4";
+    currentGlyph = "6";
+    
+    if(document.getElementById("datadiv").innerHTML.length > 1){
+        glyphArray = JSON.parse(document.getElementById("datadiv").innerHTML);
+    }
+    else{
+        glyphArray = [];
+        glyphArray.push(star5);
+        glyphArray.push(star6);
+        glyphArray.push(star8);
+        glyphArray.push(star9);
+        glyphArray.push(dot1);
+        glyphArray.push(dot2);
+        glyphArray.push(dot3);
+        glyphArray.push(dot4);
+        glyphArray.push(currentGlyph);
+    }
+
+    glyphIndex = 0;
+    currentGlyph = string2byteCode(glyphArray[glyphIndex]) + "0207,";
+
+    
+    arrowkey = false;   
+    
+
+    

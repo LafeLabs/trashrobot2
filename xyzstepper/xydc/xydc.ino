@@ -1,4 +1,4 @@
-String shape1 = String("asdfhasdfhasdfhasdfasdfadsfadsf");
+String shape1 = String("asdfgasdfgasdf");
 String shape2 = String("");
 String shape3 = String("");
 String shape4 = String("");

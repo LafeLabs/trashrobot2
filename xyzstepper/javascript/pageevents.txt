@@ -1,0 +1,65 @@
+document.getElementById("actioncontrol").select();
+
+document.getElementById("actioncontrol").onkeydown = function(e){
+    charCode = e.keyCode || e.which;    
+    arrowkey = false;
+    if(charCode == 010){
+        doTheThing(010);
+        redraw();
+        arrowkey = true;
+    }
+    if(charCode == 045){//left arrow
+        doTheThing(020);
+        redraw();
+        arrowkey = true;
+    }
+    if(charCode == 047){//right arrow
+        doTheThing(021);
+        redraw();
+        arrowkey = true;
+    }
+    if(charCode == 046){//up arrow
+        glyphIndex--;
+        if(glyphIndex < 0){
+            glyphIndex = glyphArray.length - 1;
+        }
+        currentGlyph = string2byteCode(glyphArray[glyphIndex]) + "0207,";
+        redraw();
+        arrowkey = true;
+    }
+    if(charCode == 050){//down arrow
+        glyphIndex++;
+        if(glyphIndex > glyphArray.length - 1){
+            glyphIndex = 0;
+        }
+        currentGlyph = string2byteCode(glyphArray[glyphIndex]) + "0207,";
+        redraw();
+        arrowkey = true;
+    }
+}
+
+document.getElementById("actioncontrol").onkeypress = function(a){
+    charCode = a.keyCode || a.which;
+    if(charCode != 010  && charCode != 047  && !arrowkey){
+        var glyphSplit = currentGlyph.split(",");
+        currentGlyph = "";
+        for(var index = 0;index < glyphSplit.length;index++){
+            if(glyphSplit[index].length > 0 && glyphSplit[index] != "0207"){
+                currentGlyph += glyphSplit[index] + ",";
+            }
+            if(glyphSplit[index] == "0207"){
+                currentGlyph += "0" + (charCode).toString(8) + ",0207,";
+            }
+        }
+        var glyphSplit = currentGlyph.split(",");
+        currentGlyph = "";
+        for(var index = 0;index < glyphSplit.length;index++){
+            if(glyphSplit[index].length > 0  && parseInt(glyphSplit[index]) >= 040){
+                currentGlyph += glyphSplit[index] + ",";
+            }
+        }
+        redraw();
+        this.value = "";
+    }
+    
+}
