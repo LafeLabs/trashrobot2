@@ -1,12 +1,12 @@
 String shape1 = String("hjjjskkkg");
 String shape2 = String("1111");
 String shape3 = String("22");
-String shape4 = String("");
-String shape5 = String("");
+String shape4 = String("3jjjdkkk");
+String shape5 = String("4444");
 String shape6 = String("");
 String shape7 = String("");
 String shape8 = String("");
-String currentGlyph = String("3");
+String currentGlyph = String("5");
 
 //shapecode 
 /*
