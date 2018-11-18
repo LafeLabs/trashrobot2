@@ -16,10 +16,8 @@ using stages from CD/DVD drives
 FREE, PUBLIC DOMAIN
 NO COPYRIGHT
 */
-int triangleOutPin = 12;
-int triangleInPin = 13;
-int squareOutPin = 10;
-int squareInPin = 11;
+int buttonPin = 12;
+boolean buttonState = false;
 int side = 1;
 int leftPinArray[] = {4,6,5,7};
 int rightPinArray[] = {8,10,9,11};
@@ -29,6 +27,8 @@ int leftPinIndex = 0;
 int rightPinIndex = 0;
 int zPinIndex = 0;
 int pulseTime = 10;//ms
+
+String initGlyph = "aaaa";
 
 void setup() {
  // Serial.begin(115200);
@@ -45,6 +45,8 @@ void setup() {
   pinMode(zPinArray[2],OUTPUT); 
   pinMode(zPinArray[3],OUTPUT);
   
+  pinMode(buttonPin,INPUT_PULLUP);//input with pull up resistor
+  
   digitalWrite(leftPinArray[0],LOW);
   digitalWrite(leftPinArray[1],LOW);
   digitalWrite(leftPinArray[2],LOW);
@@ -58,10 +60,17 @@ void setup() {
   digitalWrite(zPinArray[2],LOW);
   digitalWrite(zPinArray[3],LOW);
   
-  drawGlyph("576857685768");
+  drawGlyph(initGlyph);
 }
 
 void loop() {
+  buttonState = !digitalRead(buttonPin);//if grounded set to high
+//wire the button to gnd with no external pull up/down 
+
+  if(buttonState){
+      side = 1;
+      drawGlyph(currentGlyph);
+  }
   
 }
 
