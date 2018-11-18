@@ -19,16 +19,18 @@ NO COPYRIGHT
 int buttonPin = 12;
 boolean buttonState = false;
 int side = 1;
-int leftPinArray[] = {4,6,5,7};
-int rightPinArray[] = {8,10,9,11};
-int zPinArray[] = {14,16,15,17};
+int leftPinArray[] = {8,10,9,11};
+int rightPinArray[] = {14,16,15,17};
+
+int zPinArray[] = {4,6,5,7};
+
 
 int leftPinIndex = 0;
 int rightPinIndex = 0;
 int zPinIndex = 0;
 int pulseTime = 10;//ms
 
-String initGlyph = "aaaa";
+String initGlyph = "kkkkkh";
 
 void setup() {
  // Serial.begin(115200);
@@ -85,21 +87,25 @@ void doTheThing(char localCommand){
   if(localCommand == 'a'){
     for(int index = 0;index < side;index++){
         leftleft();
+        rightleft();
     }
   }
   if(localCommand == 's'){
     for(int index = 0;index < side;index++){
         rightright();
+        leftright();
     }
   }
   if(localCommand == 'd'){
     for(int index = 0;index < side;index++){
         leftright();
+        rightleft();
     }
   }
   if(localCommand == 'f'){
     for(int index = 0;index < side;index++){
-        rightleft();
+        leftleft();
+        rightright();
     }
   }
   
@@ -168,6 +174,8 @@ void leftright(){
   digitalWrite(leftPinArray[leftPinIndex],HIGH);
   delay(pulseTime);
   digitalWrite(leftPinArray[leftPinIndex],LOW);
+
+
 }
 void rightright(){
   rightPinIndex++;
