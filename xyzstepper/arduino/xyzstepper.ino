@@ -6,7 +6,7 @@ String shape5 = String("4444");
 String shape6 = String("");
 String shape7 = String("");
 String shape8 = String("");
-String currentGlyph = String("5");
+String currentGlyph = String("3");
 
 //shapecode 
 /*
@@ -17,13 +17,13 @@ FREE, PUBLIC DOMAIN
 NO COPYRIGHT
 */
 int buttonPin = 12;
+int stopPin = 3;
 boolean buttonState = false;
+boolean gostate = false;
 int side = 1;
 int leftPinArray[] = {8,10,9,11};
 int rightPinArray[] = {14,16,15,17};
-
 int zPinArray[] = {4,6,5,7};
-
 
 int leftPinIndex = 0;
 int rightPinIndex = 0;
@@ -48,6 +48,7 @@ void setup() {
   pinMode(zPinArray[3],OUTPUT);
   
   pinMode(buttonPin,INPUT_PULLUP);//input with pull up resistor
+  pinMode(stopPin,INPUT_PULLUP);//input with pull up resistor
   
   digitalWrite(leftPinArray[0],LOW);
   digitalWrite(leftPinArray[1],LOW);
@@ -62,7 +63,7 @@ void setup() {
   digitalWrite(zPinArray[2],LOW);
   digitalWrite(zPinArray[3],LOW);
   
-  drawGlyph(initGlyph);
+  //drawGlyph(initGlyph);
 }
 
 void loop() {
@@ -71,14 +72,27 @@ void loop() {
 
   if(buttonState){
       side = 1;
+      gostate = true;
       drawGlyph(currentGlyph);
+      gostate = false;
   }
   
 }
 
 void drawGlyph(String localGlyph){
+
+   gostate = digitalRead(stopPin);//if grounded set to false
+   //to break out of all loops and stop the whole glyph
+//wire the button to gnd with no external pull up/down 
+
   for(int index = 0;index < localGlyph.length();index++){
       doTheThing(localGlyph.charAt(index));
+      if(!gostate){
+          break;
+      }
+  }
+  if(!gostate){
+      break;
   }
 }
 
