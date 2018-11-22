@@ -61,7 +61,6 @@ EGO DEATH:
     <div class = "json file">json/stylejson.txt</div>
     <div class = "json file">json/currentjson.txt</div>
     
-    <div class = "arduino file">xydc/xydc.ino</div>
     <div class = "arduino file">arduino/xyzstepper.ino</div>
 
 </div>

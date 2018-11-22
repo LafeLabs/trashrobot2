@@ -91,9 +91,6 @@ void drawGlyph(String localGlyph){
           break;
       }
   }
-  if(!gostate){
-      break;
-  }
 }
 
 void doTheThing(char localCommand){

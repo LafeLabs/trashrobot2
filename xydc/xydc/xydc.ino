@@ -1,5 +1,5 @@
-String shape1 = String("asdfhasdfhasdfhasdfasdfadsfadsf");
-String shape2 = String("");
+String shape1 = String("hhadsfgadsf");
+String shape2 = String("11");
 String shape3 = String("");
 String shape4 = String("");
 String shape5 = String("");
@@ -16,6 +16,11 @@ using drawers from CD/DVD drives
 FREE, PUBLIC DOMAIN
 NO COPYRIGHT
 */
+
+int goPin = 18;
+int stopPin = 19;
+boolean goButtonState = false;
+boolean goState = false;
 
 float scaleFactor = 2;
 float unitTriangleOut = 100;//ms
@@ -36,28 +41,56 @@ int squareOutPin = 10;
 int squareInPin = 11;
 
 void setup() {
-  Serial.begin(115200);
+ // Serial.begin(115200);
   pinMode(triangleOutPin,OUTPUT);
   pinMode(triangleInPin,OUTPUT); 
   pinMode(squareOutPin,OUTPUT); 
   pinMode(squareInPin,OUTPUT);
+
+  pinMode(goPin,INPUT_PULLUP); 
+  pinMode(stopPin,INPUT_PULLUP);
+
   digitalWrite(triangleOutPin,LOW);
   digitalWrite(triangleInPin,LOW);
   digitalWrite(squareOutPin,LOW);
   digitalWrite(squareInPin,LOW);
   
-  drawGlyph(currentGlyph);
+//  drawGlyph(currentGlyph);
   
 }
 
 void loop() {
-  
+    goButtonState = !digitalRead(goPin);//if grounded set to high
+//wire the button to gnd with no external pull up/down 
+
+  if(goButtonState){
+    sideTriangleOut = unitTriangleOut;
+    sideTriangleIn= unitTriangleIn;
+    sideSquareOut = unitSquareOut;
+    sideSquareIn = unitSquareIn;
+    sideNull = unitNull;
+
+    goState = true;
+    drawGlyph(currentGlyph);
+    goState = false;
+  }
+
   
 }
 
 void drawGlyph(String localGlyph){
+   goState = digitalRead(stopPin);//if grounded set to false
+   //to break out of all loops and stop the whole glyph
+//wire the button to gnd with no external pull up/down 
+    
   for(int index = 0;index < localGlyph.length();index++){
       doTheThing(localGlyph.charAt(index));
+      if(!goState){
+          break;
+      }
+  }
+  if(!goState){
+      break;
   }
 }
 
