@@ -24,16 +24,18 @@ int side = 1;
 int leftPinArray[] = {8,10,9,11};
 int rightPinArray[] = {14,16,15,17};
 int zPinArray[] = {4,6,5,7};
+int buttonArray[] = {53,52,51,50,49,48,47,46};
+int stateArray[]  = {0,0,0,0,0,0,0,0};
 
 int leftPinIndex = 0;
 int rightPinIndex = 0;
 int zPinIndex = 0;
-int pulseTime = 10;//ms
+int pulseTime = 10;//ms,
 
 String initGlyph = "kkkkkh";
 
 void setup() {
- // Serial.begin(115200);
+  Serial.begin(115200);
   pinMode(leftPinArray[0],OUTPUT);
   pinMode(leftPinArray[1],OUTPUT); 
   pinMode(leftPinArray[2],OUTPUT); 
@@ -46,9 +48,19 @@ void setup() {
   pinMode(zPinArray[1],OUTPUT); 
   pinMode(zPinArray[2],OUTPUT); 
   pinMode(zPinArray[3],OUTPUT);
+
+  pinMode(buttonArray[0],INPUT);
+  pinMode(buttonArray[1],INPUT);
+  pinMode(buttonArray[2],INPUT);
+  pinMode(buttonArray[3],INPUT);
+  pinMode(buttonArray[4],INPUT);
+  pinMode(buttonArray[5],INPUT);
+  pinMode(buttonArray[6],INPUT);
+  pinMode(buttonArray[7],INPUT);
+
   
-  pinMode(buttonPin,INPUT_PULLUP);//input with pull up resistor
-  pinMode(stopPin,INPUT_PULLUP);//input with pull up resistor
+  //pinMode(buttonPin,INPUT_PULLUP);//input with pull up resistor
+  //pinMode(stopPin,INPUT_PULLUP);//input with pull up resistor
   
   digitalWrite(leftPinArray[0],LOW);
   digitalWrite(leftPinArray[1],LOW);
@@ -67,15 +79,45 @@ void setup() {
 }
 
 void loop() {
-  buttonState = !digitalRead(buttonPin);//if grounded set to high
+ // buttonState = !digitalRead(buttonPin);//if grounded set to high
 //wire the button to gnd with no external pull up/down 
 
-  if(buttonState){
+for(int buttonindex = 0;buttonindex < 8;buttonindex++){
+  stateArray[buttonindex] = digitalRead(buttonArray[buttonindex]);
+}
+
+
+
+if(stateArray[2]){
+  doTheThing('g');
+}
+if(stateArray[3]){
+  doTheThing('h');
+}
+
+
+if(stateArray[5]){
+  doTheThing('a');
+}
+if(stateArray[4]){
+  doTheThing('s');
+}
+
+if(stateArray[7]){
+  doTheThing('d');
+}
+if(stateArray[6]){
+  doTheThing('f');
+}
+
+/*
+  if(buttonState[7]){
       side = 1;
       gostate = true;
       drawGlyph(currentGlyph);
       gostate = false;
   }
+  */
   
 }
 
