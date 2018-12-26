@@ -1,3 +1,7 @@
+    x0 = 5;
+    y0 = 30;
+    unit = 30;
+
     for(var index = 0;index < glyphArray.length;index++){
         ctx = canvases[index*2  + 1].getContext("2d");
         if(unit*glyphArray[index].length > 450){
@@ -18,7 +22,6 @@
     spellGlyph(currentGlyph);
     
     glyphArray[glyphIndex] = byteCode2string(currentGlyph);
-    
     data = encodeURIComponent(JSON.stringify(glyphArray,null, "    "));
     var httpc = new XMLHttpRequest();
     var url = "filesaver.php";        
@@ -27,6 +30,21 @@
     httpc.send("data="+data+"&filename=json/currentjson.txt");//send text to filesaver.php
 
 
+    numbytes = 10;
+    numbits = numbytes*9;
+    document.getElementById("programcanvas").height = 400;
+    document.getElementById("programcanvas").width = numbits*100;
+    document.getElementById("programsubdiv").style.width = (numbits*100).toString() + "px";
+    
+    ctx = document.getElementById("programcanvas").getContext("2d");
+    ctx.clearRect(0,0,document.getElementById("programcanvas").width,document.getElementById("programcanvas").height);
+    
+    unit = 100;
+    x0 = 0;
+    y0 = 400;
+    doTheThing(0300);
 
+    bytecode = getbytecode();
+    drawGlyph(bytecode);
     
     

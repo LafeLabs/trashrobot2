@@ -63,3 +63,17 @@ document.getElementById("actioncontrol").onkeypress = function(a){
     }
     
 }
+
+
+
+document.getElementById("gobutton").onclick= function(){
+    document.getElementById("programsubdiv").removeChild(document.getElementById("programcanvas"));
+    var newcan = document.createElement("CANVAS");
+    newcan.id = "programcanvas";
+    newcan.style.left = "0px";
+    newcan.style.top = "0px";
+    newcan.style.position = "absolute";
+    document.getElementById("programsubdiv").appendChild(newcan);
+    newcan.className = "runclass";
+    redraw();
+}

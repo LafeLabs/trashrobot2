@@ -52,6 +52,6 @@
 
     
     arrowkey = false;   
-    
+document.getElementById("programcanvas").classList.add("runclass");
 redraw();
     

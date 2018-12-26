@@ -17,7 +17,7 @@
         </td>
     </tr>
 </table>
-
+<div id = "gobutton"></div>
 <input id = "actioncontrol"/>
 <table id = "glyphtable">
     <tr>
@@ -48,3 +48,9 @@
         <td><canvas></canvas></td><td class= "spelltd"><canvas></canvas></td>
     </tr>
 </table>
+
+<div id = "programdiv">
+    <div id = "programsubdiv">
+        <canvas id = "programcanvas"></canvas>
+    </div>
+</div>

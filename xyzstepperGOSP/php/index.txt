@@ -109,6 +109,12 @@ echo file_get_contents("javascript/redraw.txt");
 
 }
 
+function getbytecode(){
+<?php
+echo file_get_contents("javascript/getbytecode.txt");
+?>
+}
+
 <?php
 echo file_get_contents("javascript/pageevents.txt");
 ?>

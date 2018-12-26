@@ -1,0 +1,32 @@
+
+progbytecode = [];
+for(var index = 0;index < glyphArray.length;index++){
+    var localbytes = string2byteCode(glyphArray[index]).split(",");
+    for(var bindex = 0;bindex < localbytes.length;bindex++){
+        if(localbytes[bindex].length > 1){
+            progbytecode.push(localbytes[bindex]);
+        }
+    }
+    progbytecode.push("012")
+}
+
+prog = [];
+for(var index = 0;index < progbytecode.length;index++){
+    prog.push(parseInt(progbytecode[index],8));
+}
+
+progglyph = "";
+for(var index = 0;index < progbytecode.length;index++){
+    progglyph += "0253,";
+    for(var bitindex = 0;bitindex < 7;bitindex++){
+        var thisbit = ((progbytecode[index]>>bitindex)&1)//lsb first
+        if(thisbit == 0){
+            progglyph += "0333,";
+        }
+        else{
+            progglyph += "0251,";
+        }
+    }
+}
+
+return progglyph;

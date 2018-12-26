@@ -55,7 +55,7 @@ EGO DEATH:
     <div class = "javascript file">javascript/topfunctions.txt</div>
     <div class = "javascript file">javascript/actions03xx.txt</div>
     <div class = "javascript file">javascript/actions0xx.txt</div>
-
+    <div class = "javascript file">javascript/getbytecode.txt</div>
 
     <div class = "json file">json/dna.txt</div>
     <div class = "json file">json/stylejson.txt</div>

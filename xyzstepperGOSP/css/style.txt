@@ -44,3 +44,51 @@ h1,h2,h3,h4,h5{
     width:100%;
     text-align:center;
 }
+#programdiv{
+    position:absolute;
+    right:0px;
+    top:4em;
+    height:500px;
+    width:400px;
+    overflow:scroll;
+    border:solid;
+}
+#programsubdiv{
+    position:absolute;
+    left:0px;
+    top:0px;
+    overflow:scroll;
+    bottom:0px;
+}
+#programcanvas{
+    position:absolute;
+    top:0px;
+    left:0px;
+}
+.runclass{
+    animation-name: go;
+    animation-duration: 30s;
+    animation-timing-function: linear;
+}
+@keyframes go {
+  from {left: 0px;}
+  to {left: -100%;}
+}
+
+#gobutton{
+    position:absolute;
+    top:1em;
+    right:1em;
+    background-color:green;
+    border:solid;
+    border-radius:50%;
+    width:50px;
+    height:50px;
+    cursor:pointer;
+}
+#gobutton:hover{
+    border-color:white;
+}
+#gobutton:active{
+    border-color:yellow;
+}
