@@ -1,0 +1,32 @@
+    for(var index = 0;index < glyphArray.length;index++){
+        ctx = canvases[index*2  + 1].getContext("2d");
+        if(unit*glyphArray[index].length > 450){
+            canvases[index*2  + 1].width = 2*unit + unit*glyphArray[index].length; 
+        }
+        else{
+            canvases[index*2  + 1].width = 500;
+        }
+        
+        ctx.clearRect(0,0,canvases[index*2  + 1].width,60);
+        doTheThing(0300);
+        spellGlyph(string2byteCode(glyphArray[index]));
+    }
+
+    ctx = canvases[2*glyphIndex + 1].getContext("2d");
+    ctx.clearRect(0,0,500,60);
+    doTheThing(0300);
+    spellGlyph(currentGlyph);
+    
+    glyphArray[glyphIndex] = byteCode2string(currentGlyph);
+    
+    data = encodeURIComponent(JSON.stringify(glyphArray,null, "    "));
+    var httpc = new XMLHttpRequest();
+    var url = "filesaver.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+    httpc.send("data="+data+"&filename=json/currentjson.txt");//send text to filesaver.php
+
+
+
+    
+    
