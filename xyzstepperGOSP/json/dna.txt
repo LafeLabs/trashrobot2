@@ -37,6 +37,7 @@
 		"files":[
 			"actions03xx.txt",
 			"actions0xx.txt",
+			"getbytecode.txt",
 			"init.txt",
 			"pageevents.txt",
 			"redraw.txt",
