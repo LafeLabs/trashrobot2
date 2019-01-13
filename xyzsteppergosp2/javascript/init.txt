@@ -1,0 +1,21 @@
+
+    doTheThing(06);//import embedded hypercube in this .html doc
+    doTheThing(07);//initialize Geometron global variables
+    styleJSON = JSON.parse(document.getElementById("stylejsondiv").innerHTML);
+
+    glyphArray = JSON.parse(document.getElementById("datadiv").innerHTML);
+
+    glyphIndex = 0;
+    currentGlyph = string2byteCode(glyphArray[glyphIndex]) + "0207,";
+
+    arrowkey = false;   
+    
+    document.getElementById("mainCanvas").width = innerWidth;
+    document.getElementById("mainCanvas").height = innerHeight;
+
+    unit = 20;
+    x0 = 20;
+    y0 = 150;
+    
+    redraw();
+    

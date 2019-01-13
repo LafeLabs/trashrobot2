@@ -1,0 +1,29 @@
+body{
+    font-family:Helvetica;
+    font-size:1.5em;
+}
+#actioncontrol{
+    position:absolute;
+    left:0px;
+    top:0px;
+    border:solid;
+    width:1em;
+    border-color:green;
+    border-width:6px;
+    border-radius:10px;
+}
+#linktable{
+    position:absolute;
+    left:50px;
+    top:0px;
+    z-index:2;
+}
+#linktable img{
+    width:50px;
+}
+#mainCanvas{
+    position:absolute;
+    top:0px;
+    left:0px;
+    z-index:-1;
+}

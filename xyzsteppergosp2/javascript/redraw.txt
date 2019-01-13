@@ -1,0 +1,15 @@
+    ctx = document.getElementById("mainCanvas").getContext("2d");
+    ctx.clearRect(0,0,innerWidth,innerHeight);
+    doTheThing(0300);
+    spellGlyph(currentGlyph);
+
+
+    data = encodeURIComponent(JSON.stringify(glyphArray,null, "    "));
+    var httpc = new XMLHttpRequest();
+    var url = "filesaver.php";        
+    httpc.open("POST", url, true);
+    httpc.setRequestHeader("Content-Type", "application/x-www-form-urlencoded;charset=utf-8");
+    httpc.send("data="+data+"&filename=json/currentjson.txt");//send text to filesaver.php
+
+
+    
