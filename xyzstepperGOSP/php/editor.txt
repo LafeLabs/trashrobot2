@@ -68,7 +68,7 @@ EGO DEATH:
 </div>
 
 <script>
-currentFile = "php/index.txt";
+currentFile = "php/gosp.txt";
 var httpc = new XMLHttpRequest();
 httpc.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {

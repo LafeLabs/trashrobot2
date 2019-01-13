@@ -96,18 +96,13 @@ echo file_get_contents("json/currentjson.txt");
                    <img src = "icons/editor.svg"/>
                 </a>
             </td>
-            <td class = "button" id = "stopbutton">
-            </td>
             <td class = "button" id = "gobutton">
             </td>
         </tr>
     </table>
     <div id = "programbox">
-        <div id = "programsubdiv">
-            <canvas id = "programcanvas"></canvas>            
-        </div>
+        <canvas id = "programcanvas"></canvas>            
     </div>
-    
     <div id = "pickupbox"></div>
 </div>
 
@@ -125,8 +120,7 @@ numbytes = 10;
 numbits = numbytes*9;
 document.getElementById("programcanvas").height = 500;
 document.getElementById("programcanvas").width = (numbits + 4)*unit;
-document.getElementById("programsubdiv").style.width = (numbits*unit).toString() + "px";
-    
+
 ctx = document.getElementById("programcanvas").getContext("2d");
 ctx.clearRect(0,0,document.getElementById("programcanvas").width,document.getElementById("programcanvas").height);
     
@@ -148,34 +142,22 @@ echo file_get_contents("javascript/getbytecode.txt");
 //page events
 
 document.getElementById("gobutton").onclick = function(){
-    document.getElementById("programsubdiv").removeChild(document.getElementById("programcanvas"));
-    var newcan = document.createElement("CANVAS");
-    newcan.id = "programcanvas";
-    document.getElementById("programsubdiv").appendChild(newcan);
-    newcan.style.left = "0px";
-    newcan.style.top = "0px";
-    newcan.style.position = "absolute";
-    numbytes = 10;
-    numbits = numbytes*9;
-    document.getElementById("programcanvas").height = 500;
-    document.getElementById("programcanvas").width = numbits*unit;
-    document.getElementById("programsubdiv").style.width = (numbits*unit).toString() + "px";
-    
-    ctx = document.getElementById("programcanvas").getContext("2d");
-    ctx.clearRect(0,0,document.getElementById("programcanvas").width,document.getElementById("programcanvas").height);
-    
-    unit = 125;
-    x0 = 0;
-    y0 = 500;
-    doTheThing(0300);
-
-    bytecode = getbytecode();
-    drawGlyph("0337,0337,0337,0333,0336,0336,0336,");
-    drawGlyph(bytecode);
-
-    newcan.className = "runclass";
-   
+    document.getElementById("programcanvas").style.left = "500px";
+    totaldistance = (numbits + 4)*unit;
+    stepsize = unit;
+    pos = 0;
+    id = setInterval(frame, 100);
+    function frame() {
+        if (pos == totaldistance) {
+            clearInterval(id);
+        }else {
+            pos  -= stepsize; 
+            document.getElementById("programcanvas").style.left = pos + "px"; 
+        }
+    }
 }
+
+  
 
 </script>
 <style>
@@ -226,21 +208,11 @@ document.getElementById("gobutton").onclick = function(){
     #stopbutton{
         background-color:red;
     }
-    .runclass{
-        animation-name: go;
-        animation-duration: 60s;
-        animation-timing-function: linear;
+    #programcanvas{
+        position:absolute;
+        left:500px;
+        top:0px;
     }
-    @keyframes go {
-        from {left: 0px;}
-        to {left: -100%;}
-    }
-#programsubdiv{
-    position:absolute;
-    top:0px;
-    overflow:scroll;
-    bottom:0px;
-}
 
 </style>
 </body>
