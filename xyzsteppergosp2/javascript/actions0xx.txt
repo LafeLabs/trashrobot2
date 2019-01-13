@@ -94,7 +94,7 @@
         redraw();
     }    
     if(localCommand == 012){//newline        
-        y += 1.5*unit;
+        y += 3*unit;
         x = x0;
     }
     if(localCommand == 014){//export JSON        

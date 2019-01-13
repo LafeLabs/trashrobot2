@@ -21,18 +21,18 @@ document.getElementById("actioncontrol").onkeydown = function(e){
     if(charCode == 046){//up arrow
         glyphIndex--;
         if(glyphIndex < 0){
-            glyphIndex = glyphArray.length - 1;
+            glyphIndex = currentjson.length - 1;
         }
-        currentGlyph = string2byteCode(glyphArray[glyphIndex]) + "0207,";
+        currentGlyph = string2byteCode(currentjson[glyphIndex]) + "0207,";
         redraw();
         arrowkey = true;
     }
     if(charCode == 050){//down arrow
         glyphIndex++;
-        if(glyphIndex > glyphArray.length - 1){
+        if(glyphIndex > currentjson.length - 1){
             glyphIndex = 0;
         }
-        currentGlyph = string2byteCode(glyphArray[glyphIndex]) + "0207,";
+        currentGlyph = string2byteCode(currentjson[glyphIndex]) + "0207,";
         redraw();
         arrowkey = true;
     }

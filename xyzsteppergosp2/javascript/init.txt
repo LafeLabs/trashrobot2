@@ -3,10 +3,10 @@
     doTheThing(07);//initialize Geometron global variables
     styleJSON = JSON.parse(document.getElementById("stylejsondiv").innerHTML);
 
-    glyphArray = JSON.parse(document.getElementById("datadiv").innerHTML);
+    currentjson = JSON.parse(document.getElementById("datadiv").innerHTML);
 
     glyphIndex = 0;
-    currentGlyph = string2byteCode(glyphArray[glyphIndex]) + "0207,";
+    currentGlyph = string2byteCode(currentjson[glyphIndex]) + "0207,";
 
     arrowkey = false;   
     
@@ -17,5 +17,6 @@
     x0 = 20;
     y0 = 150;
     
+    labelArray = [01061,01062,01063,01064,01065,01066,01067,01070,01107];
     redraw();
     

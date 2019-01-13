@@ -1,10 +1,31 @@
     ctx = document.getElementById("mainCanvas").getContext("2d");
     ctx.clearRect(0,0,innerWidth,innerHeight);
     doTheThing(0300);
-    spellGlyph(currentGlyph);
+
+    for(var index = 0;index < labelArray.length;index++){
+        doTheThing(labelArray[index]);//symbols
+        doTheThing(01072);//colon
+        if(index == glyphIndex){
+            spellGlyph(currentGlyph);
+        }
+        else{
+            spellGlyph(string2byteCode(currentjson[index]));
+        }
+        doTheThing(012);
+    }    
 
 
-    data = encodeURIComponent(JSON.stringify(glyphArray,null, "    "));
+    var glyphArray = currentGlyph.split(",");
+    cleanGlyph = "";
+    for(var index = 0;index < glyphArray.length;index++){
+        if(glyphArray[index] != "0207" && glyphArray[index].length > 0){
+            cleanGlyph += glyphArray[index] + ",";
+        }
+    }
+    currentjson[glyphIndex] = byteCode2string(cleanGlyph);
+
+
+    data = encodeURIComponent(JSON.stringify(currentjson,null, "    "));
     var httpc = new XMLHttpRequest();
     var url = "filesaver.php";        
     httpc.open("POST", url, true);
