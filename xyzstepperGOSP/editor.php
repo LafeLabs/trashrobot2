@@ -26,6 +26,7 @@ EGO DEATH:
     <a href = "index.php">index.php</a>
     <a href = "shapetableeditor.php">shapetableeditor.php</a>
     <a href = "dnagenerator.php">dnagenerator.php</a>
+    <a href = "gosp.php">gosp.php</a>
 </div>
 <div id = "namediv"></div>
 <div id="maineditor" contenteditable="true" spellcheck="false"></div>
@@ -34,6 +35,7 @@ EGO DEATH:
     <div class = "css file">css/style.txt</div>
 
     <div class = "php file">php/index.txt</div>
+    <div class = "php file">php/gosp.txt</div>
     <div class = "php file">php/editor.txt</div>
     <div class = "php file">php/filesaver.txt</div>
     <div class = "php file">php/fileloader.txt</div>

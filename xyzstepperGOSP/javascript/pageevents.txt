@@ -64,7 +64,37 @@ document.getElementById("actioncontrol").onkeypress = function(a){
     
 }
 
+document.getElementById("readybutton").onclick= function(){
+    numbytes = 10;
+    numbits = numbytes*9;
+    document.getElementById("programcanvas").height = 400;
+    document.getElementById("programcanvas").width = numbits*100;
+    document.getElementById("programsubdiv").style.width = (numbits*100).toString() + "px";
+    
+    ctx = document.getElementById("programcanvas").getContext("2d");
+    ctx.clearRect(0,0,document.getElementById("programcanvas").width,document.getElementById("programcanvas").height);
+    
+    unit = 100;
+    x0 = 0;
+    y0 = 400;
+    doTheThing(0300);
 
+    bytecode = getbytecode();
+    drawGlyph(bytecode);
+    
+}
+document.getElementById("stopbutton").onclick= function(){
+    document.getElementById("programsubdiv").removeChild(document.getElementById("programcanvas"));
+    var newcan = document.createElement("CANVAS");
+    newcan.id = "programcanvas";
+    newcan.style.left = "0px";
+    newcan.style.top = "0px";
+    newcan.style.position = "absolute";
+    document.getElementById("programsubdiv").appendChild(newcan);
+
+    redraw();    
+    
+}
 
 document.getElementById("gobutton").onclick= function(){
     document.getElementById("programsubdiv").removeChild(document.getElementById("programcanvas"));

@@ -30,21 +30,4 @@
     httpc.send("data="+data+"&filename=json/currentjson.txt");//send text to filesaver.php
 
 
-    numbytes = 10;
-    numbits = numbytes*9;
-    document.getElementById("programcanvas").height = 400;
-    document.getElementById("programcanvas").width = numbits*100;
-    document.getElementById("programsubdiv").style.width = (numbits*100).toString() + "px";
-    
-    ctx = document.getElementById("programcanvas").getContext("2d");
-    ctx.clearRect(0,0,document.getElementById("programcanvas").width,document.getElementById("programcanvas").height);
-    
-    unit = 100;
-    x0 = 0;
-    y0 = 400;
-    doTheThing(0300);
-
-    bytecode = getbytecode();
-    drawGlyph(bytecode);
-    
     

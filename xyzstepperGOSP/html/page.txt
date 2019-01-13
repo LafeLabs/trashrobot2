@@ -15,9 +15,23 @@
                 <img src =  "icons/shapes.svg"/>
             </a>
         </td>
+        <td>
+            <a href = "gosp.php">
+                <img src =  "icons/gosp.svg"/>
+            </a>
+        </td>
     </tr>
 </table>
-<div id = "gobutton"></div>
+<table id = "gocontrol">
+    <tr>
+        <td id = "stopbutton" class = "button">
+        </td>
+        <td id = "readybutton" class = "button">
+        </td>
+        <td id = "gobutton" class = "button">
+        </td>
+    </tr>
+</table>
 <input id = "actioncontrol"/>
 <table id = "glyphtable">
     <tr>
