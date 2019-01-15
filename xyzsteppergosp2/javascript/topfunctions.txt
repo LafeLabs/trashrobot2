@@ -64,3 +64,32 @@ function byteCode2string(localByteCode){
     }
     return localString;
 }
+
+function currentjson2string(localjson){
+    var outstring = "";
+    var localLabelArray = ["1","2","3","4","5","6","7","8","G"];
+    for(var index = 0;index < localjson.length;index++){
+        if(localjson[index].length > 0){
+            outstring += localLabelArray[index] + ":" + localjson[index] + "\n";
+        }
+    }
+    return(outstring);
+}
+
+function string2gosp(localstring){
+    var localbytecode = string2byteCode(localstring);
+    var byteArray = localbytecode.split(",");
+    var gospglyph = "";
+    for(var index = 0;index < byteArray.length;index++){
+        gospglyph += "0223,";
+        for(var bitindex = 0;bitindex < 7;bitindex++){
+            if((byteArray[index]>>bitindex) & 1 == 1){
+                gospglyph += "0221,";
+            }
+            else{
+                gospglyph += "0222,";
+            }
+        }
+    }
+    return gospglyph;
+}

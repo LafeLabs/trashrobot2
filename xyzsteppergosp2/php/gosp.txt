@@ -113,13 +113,12 @@ echo file_get_contents("json/currentjson.txt");
 doTheThing(06);//import embedded hypercube in this .html doc
 doTheThing(07);//initialize Geometron global variables
 styleJSON = JSON.parse(document.getElementById("stylejsondiv").innerHTML);
-glyphArray = JSON.parse(document.getElementById("datadiv").innerHTML);
-document.getElementById("programcanvas").classList.add("runclass");
+currentjson = JSON.parse(document.getElementById("datadiv").innerHTML);
 
-numbytes = 10;
-numbits = numbytes*9;
+numbytes = currentjson2string(currentjson).length;
+
 document.getElementById("programcanvas").height = 500;
-document.getElementById("programcanvas").width = (numbits + 4)*unit;
+document.getElementById("programcanvas").width = 500;//(numbytes*30)*unit;
 
 ctx = document.getElementById("programcanvas").getContext("2d");
 ctx.clearRect(0,0,document.getElementById("programcanvas").width,document.getElementById("programcanvas").height);
@@ -128,23 +127,16 @@ unit = 125;
 x0 = 0;
 y0 = 500;
 doTheThing(0300);
+doTheThing(0341);
+//drawGlyph(string2gosp(currentjson2string(currentjson)));
 
-bytecode = getbytecode();
-drawGlyph("0337,0337,0337,0333,0336,0336,0336,");
-drawGlyph(bytecode);
-
-function getbytecode(){
-<?php
-echo file_get_contents("javascript/getbytecode.txt");
-?>
-}
 
 //page events
 
 document.getElementById("gobutton").onclick = function(){
     document.getElementById("programcanvas").style.left = "500px";
-    totaldistance = (numbits + 4)*unit;
-    stepsize = unit;
+    totaldistance = (numbytes/15)*unit;//each step is 2 units
+    stepsize = 2*unit;
     pos = 0;
     id = setInterval(frame, 100);
     function frame() {
@@ -210,8 +202,9 @@ document.getElementById("gobutton").onclick = function(){
     }
     #programcanvas{
         position:absolute;
-        left:500px;
+        left:250px;
         top:0px;
+        background-color:#a0ffa0;
     }
 
 </style>
