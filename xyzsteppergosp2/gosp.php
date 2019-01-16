@@ -39,45 +39,12 @@ LANGUAGE IS HOW THE MIND PARSES REALITY
 	});//			MathJax.Hub.Typeset();//tell Mathjax to update the math
 </script>
 -->
-<script id = "bytecodeScript">/*
-<?php
-echo file_get_contents("bytecode/baseshapes.txt")."\n";
-echo file_get_contents("bytecode/shapetable.txt")."\n";
-echo file_get_contents("bytecode/font.txt")."\n";
-echo file_get_contents("bytecode/keyboard.txt")."\n";
-echo file_get_contents("bytecode/symbols013xx.txt")."\n";
-echo file_get_contents("bytecode/symbols010xx.txt")."\n";
 
-?>
-*/</script>
 <script id = "topfunctions">
 <?php
 echo file_get_contents("javascript/topfunctions.txt");
 ?>   
 </script>
-<script id = "actions">
-function doTheThing(localCommand){    
-    if(localCommand >= 040 && localCommand <= 0176){
-        currentHTML += String.fromCharCode(localCommand);
-        currentWord += String.fromCharCode(localCommand);
-    }
-    if(localCommand >= 0200 && localCommand <= 0277){//shapes 
-        if(!(localCommand == 0207 && editMode == false) ){
-            drawGlyph(currentTable[localCommand]);    	    
-        }
-    }
-    if(localCommand >= 01000 && localCommand <= 01777){//symbol glyphs
-            drawGlyph(currentTable[localCommand]);    	    
-    } 
-    <?php
-    echo file_get_contents("javascript/actions03xx.txt");
-    echo "\n";
-    echo file_get_contents("javascript/actions0xx.txt");
-    echo "\n";
-    ?>    
-}
-</script>
-
 </head>
 <body>
 <div id = "datadiv" style = "display:none"><?php
@@ -85,9 +52,6 @@ function doTheThing(localCommand){
 echo file_get_contents("json/currentjson.txt");
 
 ?></div>    
-<div id = "stylejsondiv" style = "display:none"><?php
-    echo file_get_contents("json/stylejson.txt");
-?></div>
 <div id = "page">
     <table id = "toptable">
         <tr>
@@ -101,50 +65,59 @@ echo file_get_contents("json/currentjson.txt");
         </tr>
     </table>
     <div id = "programbox">
-        <canvas id = "programcanvas"></canvas>            
+        <div id = "enablebox" class= "subbox"></div>
+        <div id = "bytebox" class= "subbox"></div>
+        <div id = "bitbox" class= "subbox"></div>
+        <div id = "databox" class= "subbox"></div>
     </div>
-    <div id = "pickupbox"></div>
 </div>
 
 
 <script>
 
-
-doTheThing(06);//import embedded hypercube in this .html doc
-doTheThing(07);//initialize Geometron global variables
-styleJSON = JSON.parse(document.getElementById("stylejsondiv").innerHTML);
 currentjson = JSON.parse(document.getElementById("datadiv").innerHTML);
 
 numbytes = currentjson2string(currentjson).length;
 
-document.getElementById("programcanvas").height = 500;
-document.getElementById("programcanvas").width = 500;//(numbytes*30)*unit;
-
-ctx = document.getElementById("programcanvas").getContext("2d");
-ctx.clearRect(0,0,document.getElementById("programcanvas").width,document.getElementById("programcanvas").height);
-    
-unit = 125;
-x0 = 0;
-y0 = 500;
-doTheThing(0300);
-doTheThing(0341);
-//drawGlyph(string2gosp(currentjson2string(currentjson)));
-
-
-//page events
+datastring = currentjson2string(currentjson);
+bitstring = string2bits(datastring);
 
 document.getElementById("gobutton").onclick = function(){
-    document.getElementById("programcanvas").style.left = "500px";
-    totaldistance = (numbytes/15)*unit;//each step is 2 units
-    stepsize = 2*unit;
-    pos = 0;
     id = setInterval(frame, 100);
+    bitindex = 0;
+    byteindex = 0;
+    frameindex = 0;
     function frame() {
-        if (pos == totaldistance) {
+        if(frameindex == numbytes*2*7) {
+            document.getElementById("enablebox").style.backgroundColor = "white";            
+            document.getElementById("bytebox").style.backgroundColor = "white";
+            document.getElementById("bitbox").style.backgroundColor = "white";
+            document.getElementById("databox").style.backgroundColor = "white";
             clearInterval(id);
-        }else {
-            pos  -= stepsize; 
-            document.getElementById("programcanvas").style.left = pos + "px"; 
+        } 
+        else{
+            document.getElementById("enablebox").style.backgroundColor = "black";
+            if(frameindex%7==0){
+                document.getElementById("bytebox").style.backgroundColor = "white";
+            }
+            else{
+                document.getElementById("bytebox").style.backgroundColor = "black";
+            }
+            if(frameindex%2==1){
+                document.getElementById("bitbox").style.backgroundColor = "black";
+                if(bitstring.charAt(bitindex) == 1){
+                    document.getElementById("databox").style.backgroundColor = "black";
+                }
+                else{
+                    document.getElementById("databox").style.backgroundColor = "white";
+                }
+                
+                bitindex++;
+            }
+            else{
+                document.getElementById("bitbox").style.backgroundColor = "white";
+            }
+            frameindex++;
         }
     }
 }
@@ -178,15 +151,6 @@ document.getElementById("gobutton").onclick = function(){
         border:solid;
         border-width:5px;
     }
-    #programbox{
-        position:absolute;
-        right:10px;
-        left:10px;
-        bottom:10px;
-        border:solid;
-        height:540px;
-        overflow:scroll;
-    }
     #page{
         position:absolute;
         left:0px;
@@ -200,13 +164,33 @@ document.getElementById("gobutton").onclick = function(){
     #stopbutton{
         background-color:red;
     }
-    #programcanvas{
+    #programbox{
         position:absolute;
-        left:250px;
-        top:0px;
-        background-color:#a0ffa0;
+        left:10px;
+        bottom:10px;
+        border:solid;
+        height:540px;
+        width:300px;
+        overflow:hidden;
     }
-
+    .subbox{
+        position:absolute;
+        width:100%;
+        height:25%;
+        left:0px;
+    }
+    #enablebox{
+        top:0px;
+    }
+    #bytebox{
+        top:25%;
+    }
+    #bitbox{
+        top:50%;
+    }
+    #databox{
+        top:75%;
+    }
 </style>
 </body>
 </html>

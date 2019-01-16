@@ -93,3 +93,20 @@ function string2gosp(localstring){
     }
     return gospglyph;
 }
+
+function string2bits(localstring){
+    var localbytecode = string2byteCode(localstring);
+    var byteArray = localbytecode.split(",");
+    var bits = "";
+    for(var index = 0;index < byteArray.length;index++){
+        for(var bitindex = 0;bitindex < 7;bitindex++){
+            if((byteArray[index]>>bitindex) & 1 == 1){
+                bits += "1";
+            }
+            else{
+                bits += "0";
+            }
+        }
+    }
+    return bits;
+}
