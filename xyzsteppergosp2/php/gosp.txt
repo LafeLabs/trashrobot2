@@ -83,12 +83,12 @@ datastring = currentjson2string(currentjson);
 bitstring = string2bits(datastring);
 
 document.getElementById("gobutton").onclick = function(){
-    id = setInterval(frame, 100);
+    id = setInterval(frame, 200);
     bitindex = 0;
     byteindex = 0;
     frameindex = 0;
     function frame() {
-        if(frameindex == numbytes*2*7) {
+        if(frameindex == numbytes*14) {
             document.getElementById("enablebox").style.backgroundColor = "white";            
             document.getElementById("bytebox").style.backgroundColor = "white";
             document.getElementById("bitbox").style.backgroundColor = "white";
@@ -97,7 +97,7 @@ document.getElementById("gobutton").onclick = function(){
         } 
         else{
             document.getElementById("enablebox").style.backgroundColor = "black";
-            if(frameindex%7==0){
+            if(frameindex%14==0){
                 document.getElementById("bytebox").style.backgroundColor = "white";
             }
             else{
@@ -116,6 +116,7 @@ document.getElementById("gobutton").onclick = function(){
             }
             else{
                 document.getElementById("bitbox").style.backgroundColor = "white";
+                document.getElementById("databox").style.backgroundColor = "white";
             }
             frameindex++;
         }
