@@ -56,6 +56,12 @@ echo file_get_contents("json/currentjson.txt");
     <table id = "toptable">
         <tr>
             <td>
+                <a href = "index.php">
+                   <img src = "icons/symbol.svg"/>
+                </a>
+            </td>
+    
+            <td>
                 <a href = "editor.php">
                    <img src = "icons/editor.svg"/>
                 </a>
@@ -63,6 +69,12 @@ echo file_get_contents("json/currentjson.txt");
             <td>
                 <div class = "button" id = "gobutton"></div>
             </td>
+        </tr>
+    </table>
+    <table id = "frametimetable">
+        <tr>
+            <td>frametime:</td>
+            <td><input id = "frametimeinput"/></td>
         </tr>
     </table>
     <textarea id = "textinput"></textarea>
@@ -76,6 +88,8 @@ echo file_get_contents("json/currentjson.txt");
 
 
 <script>
+frametime = 200;
+document.getElementById("frametimeinput").value = frametime.toString();
 
 document.getElementById("textinput").value = document.getElementById("datadiv").innerHTML;
 
@@ -87,10 +101,11 @@ bitstring = string2bits(datastring);
 
 document.getElementById("gobutton").onclick = function(){
 
+    frametime = parseInt(document.getElementById("frametimeinput").value);
     numbytes = document.getElementById("textinput").value.length;
     bitstring = string2bits(document.getElementById("textinput").value);
 
-    id = setInterval(frame, 500);
+    id = setInterval(frame, frametime);
     bitindex = 0;
     byteindex = 0;
     frameindex = 0;
@@ -206,6 +221,11 @@ document.getElementById("gobutton").onclick = function(){
         top:2em;
         width:200px;
         height:200px;
+    }
+    #frametimetable{
+        position:absolute;
+        left:0px;
+        top:80px;
     }
 </style>
 </body>
