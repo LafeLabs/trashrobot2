@@ -60,10 +60,12 @@ echo file_get_contents("json/currentjson.txt");
                    <img src = "icons/editor.svg"/>
                 </a>
             </td>
-            <td class = "button" id = "gobutton">
+            <td>
+                <div class = "button" id = "gobutton"></div>
             </td>
         </tr>
     </table>
+    <textarea id = "textinput"></textarea>
     <div id = "programbox">
         <div id = "enablebox" class= "subbox"></div>
         <div id = "bytebox" class= "subbox"></div>
@@ -75,15 +77,20 @@ echo file_get_contents("json/currentjson.txt");
 
 <script>
 
+document.getElementById("textinput").value = document.getElementById("datadiv").innerHTML;
+
 currentjson = JSON.parse(document.getElementById("datadiv").innerHTML);
 
 numbytes = currentjson2string(currentjson).length;
-
 datastring = currentjson2string(currentjson);
 bitstring = string2bits(datastring);
 
 document.getElementById("gobutton").onclick = function(){
-    id = setInterval(frame, 200);
+
+    numbytes = document.getElementById("textinput").value.length;
+    bitstring = string2bits(document.getElementById("textinput").value);
+
+    id = setInterval(frame, 500);
     bitindex = 0;
     byteindex = 0;
     frameindex = 0;
@@ -94,7 +101,7 @@ document.getElementById("gobutton").onclick = function(){
             document.getElementById("bitbox").style.backgroundColor = "white";
             document.getElementById("databox").style.backgroundColor = "white";
             clearInterval(id);
-        } 
+        }
         else{
             document.getElementById("enablebox").style.backgroundColor = "black";
             if(frameindex%14==0){
@@ -137,11 +144,12 @@ document.getElementById("gobutton").onclick = function(){
     }
     .button{
         cursor:pointer;
-        width:60px;
-        height:60px;
-        border-radius:30px;
+        width:30px;
+        height:30px;
+        border-radius:15px;
         border:solid;
         border-width:1px;
+        background-color:green;
     }
     .button:hover{
         border:solid;
@@ -191,6 +199,13 @@ document.getElementById("gobutton").onclick = function(){
     }
     #databox{
         top:75%;
+    }
+    #textinput{
+        position:absolute;
+        right:0px;
+        top:2em;
+        width:200px;
+        height:200px;
     }
 </style>
 </body>

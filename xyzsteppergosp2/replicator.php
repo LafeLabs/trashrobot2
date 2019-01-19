@@ -1,6 +1,6 @@
 <?php
 
-    $url = "https://raw.githubusercontent.com/LafeLabs/trashrobot2/master/xyzstepperGOSP/json/dna.txt";
+    $url = "https://raw.githubusercontent.com/LafeLabs/trashrobot2/master/xyzsteppergosp2/json/dna.txt";
     $dnaraw = file_get_contents($url);
     $dna =json_decode($dnaraw);
     $baseurl = explode("json",$url)[0];

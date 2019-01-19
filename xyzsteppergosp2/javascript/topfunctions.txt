@@ -98,15 +98,18 @@ function string2bits(localstring){
     var localbytecode = string2byteCode(localstring);
     var byteArray = localbytecode.split(",");
     var bits = "";
-    for(var index = 0;index < byteArray.length;index++){
-        for(var bitindex = 0;bitindex < 7;bitindex++){
-            if((byteArray[index]>>bitindex) & 1 == 1){
+    for(var index = 0;index < byteArray.length - 1;index++){
+        var asciinumber =  parseInt(byteArray[index],8);
+        for(var bitindex = 6;bitindex >= 0;bitindex--){
+            if((asciinumber>>bitindex) & 1 == 1){
                 bits += "1";
             }
             else{
                 bits += "0";
             }
+
         }
+    
     }
     return bits;
 }
